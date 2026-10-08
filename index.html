@@ -10,6 +10,10 @@
         padding: 0;
         box-sizing: border-box;
       }
+      html,
+      body {
+        overflow-x: hidden;
+      }
       body {
         background: #1a1a2e;
         display: flex;
@@ -19,6 +23,7 @@
         min-height: 100vh;
         font-family: sans-serif;
         gap: 16px;
+        padding: 16px;
       }
       h1 {
         color: #fff;
@@ -33,13 +38,13 @@
       }
       .grid {
         display: grid;
-        grid-template-columns: repeat(12, 48px);
-        grid-template-rows: repeat(12, 48px);
-        gap: 4px;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        gap: clamp(2px, 0.8vw, 4px);
+        width: min(92vw, 576px);
+        aspect-ratio: 1 / 1;
       }
       .cell {
-        width: 48px;
-        height: 48px;
         border-radius: 8px;
         background: #2a2a4a;
         cursor: pointer;
@@ -64,6 +69,8 @@
       }
       .buttons {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 12px;
       }
       button {

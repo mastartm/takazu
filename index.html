@@ -353,13 +353,9 @@
         }
 
         const { r, c } = empties[Math.floor(Math.random() * empties.length)];
-        saveHistory();
-        board[r][c] = solution[r][c];
-        locked[r][c] = true;
-        renderGrid();
-        checkErrors();
 
-        // ipucu hücresini sarıyla vurgula
+        // değeri yazmıyoruz — sadece hücreyi işaretliyoruz, çözümü oyuncu bulacak
+        setWarning("👀 Bu hücrenin rengini kısıtlardan çıkarabilirsin.");
         const cells = grid.querySelectorAll(".cell");
         cells[r * SIZE + c].classList.add("hint");
         setTimeout(() => cells[r * SIZE + c].classList.remove("hint"), 1500);
@@ -554,7 +550,7 @@
         <div class="controls">
           <span>Sol tık</span> → Boş → 🔴 Kırmızı → 🔵 Mavi → Boş<br />
           <span>Sağ tık</span> → 2 adım ileri atlar<br />
-          <span>💡 İpucu</span> → Rastgele bir hücreyi doldurur<br />
+          <span>💡 İpucu</span> → Rastgele bir hücreyi işaretler, rengi sen bulursun<br />
           <span>↩ Geri Al</span> → Son hamleyi geri alır
         </div>
 
